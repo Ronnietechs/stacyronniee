@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine, Stacy? ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* ===== PAGE 1: PROPOSAL ===== */
+        #page1 {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a0a1f 0%, #2d0d2d 50%, #1a0a1f 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease;
+        }
+
+        #page1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(220, 20, 60, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .proposal-container {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+            animation: slideUp 0.8s ease 0.2s both;
+        }
+
+        .proposal-container h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: #ff69b4;
+            text-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
+            margin-bottom: 20px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .proposal-container p {
+            font-size: 1.3rem;
+            color: #e0b0ff;
+            margin-bottom: 60px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 16px 50px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Lora', serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #yesBtn {
+            background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.4);
+        }
+
+        #yesBtn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 40px rgba(255, 20, 147, 0.6);
+        }
+
+        #noBtn {
+            background: rgba(100, 50, 150, 0.3);
+            color: #e0b0ff;
+            border: 2px solid #8a2be2;
+            transition: all 0.2s ease;
+        }
+
+        #noBtn:hover {
+            background: rgba(100, 50, 150, 0.1);
+            transform: scale(0.95);
+        }
+
+        /* ===== PAGE 2: DATE PREFERENCES ===== */
+        #page2 {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #2d0d2d 0%, #1a0a1f 50%, #2d0d2d 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease;
+        }
+
+        #page2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 80% 20%, rgba(220, 20, 60, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .preference-container {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+            max-width: 700px;
+            padding: 0 20px;
+            animation: slideUp 0.8s ease 0.2s both;
+        }
+
+        .preference-container h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #ff69b4;
+            text-shadow: 0 0 25px rgba(138, 43, 226, 0.4);
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+
+        .preference-container .subtitle {
+            font-size: 1.2rem;
+            color: #d4a5ff;
+            margin-bottom: 50px;
+            font-weight: 500;
+        }
+
+        .preferences {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .pref-btn {
+            padding: 20px;
+            background: rgba(138, 43, 226, 0.2);
+            border: 2px solid #8a2be2;
+            border-radius: 15px;
+            color: #e0b0ff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Lora', serif;
+            font-weight: 600;
+        }
+
+        .pref-btn:hover {
+            background: rgba(138, 43, 226, 0.4);
+            border-color: #ff69b4;
+            color: #ff69b4;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.3);
+        }
+
+        .pref-btn.selected {
+            background: linear-gradient(135deg, #8a2be2 0%, #ff1493 100%);
+            border-color: #ff69b4;
+            color: white;
+            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.5);
+        }
+
+        .submit-container {
+            margin-top: 30px;
+        }
+
+        #submitBtn {
+            background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.4);
+        }
+
+        #submitBtn:hover:not(:disabled) {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 40px rgba(255, 20, 147, 0.6);
+        }
+
+        #submitBtn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes flowerPop {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) scale(0.3) rotate(360deg);
+            }
+        }
+
+        .flower {
+            position: fixed;
+            pointer-events: none;
+            font-size: 3rem;
+            animation: flowerPop 1.5s ease-out forwards;
+            z-index: 1000;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .proposal-container h1 {
+                font-size: 2.5rem;
+            }
+
+            .preference-container h2 {
+                font-size: 2rem;
+            }
+
+            .preferences {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                gap: 15px;
+            }
+
+            button {
+                padding: 14px 40px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1: THE PROPOSAL -->
+    <div id="page1">
+        <div class="proposal-container">
+            <h1>Stacy ✨</h1>
+            <p>Will you be my Valentine?</p>
+            <div class="button-group">
+                <button id="yesBtn">YES!</button>
+                <button id="noBtn">No thanks</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: DATE PREFERENCES -->
+    <div id="page2" class="hidden">
+        <div class="preference-container">
+            <h2>Let's Plan Our Night 💕</h2>
+            <p class="subtitle">A romantic dinner awaits!</p>
+            
+            <div style="text-align: left; margin-bottom: 40px;">
+                <div style="margin-bottom: 35px;">
+                    <p style="color: #e0b0ff; font-size: 1.1rem; margin-bottom: 15px; font-weight: 600;">How much would you like for the evening?</p>
+                    <input type="number" id="budgetInput" placeholder="Enter amount ($)" style="width: 100%; padding: 14px; background: rgba(138, 43, 226, 0.2); border: 2px solid #8a2be2; border-radius: 15px; color: #e0b0ff; font-family: 'Lora', serif; font-size: 1rem; text-align: center;" min="0">
+                </div>
+
+                <div style="margin-bottom: 35px;">
+                    <p style="color: #e0b0ff; font-size: 1.1rem; margin-bottom: 15px; font-weight: 600;">Do you want new outfits for our date?</p>
+                    <div class="preferences" style="grid-template-columns: 1fr 1fr;">
+                        <button class="pref-btn" data-type="outfits" data-value="yes">👗 Yes, let's shop!</button>
+                        <button class="pref-btn" data-type="outfits" data-value="no">✨ I've got something</button>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 35px;">
+                    <p style="color: #e0b0ff; font-size: 1.1rem; margin-bottom: 15px; font-weight: 600;">Should we plan a whole weekend?</p>
+                    <div class="preferences" style="grid-template-columns: 1fr 1fr;">
+                        <button class="pref-btn" data-type="weekend" data-value="yes">🏨 Yes! Full weekend!</button>
+                        <button class="pref-btn" data-type="weekend" data-value="no">🌙 Just the dinner night</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="submit-container">
+                <button id="submitBtn" disabled>Let's Make It Happen 💗</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let preferences = {
+            budget: null,
+            outfits: null,
+            weekend: null
+        };
+
+        // Flower pop effect
+        function createFlowerPop(x, y) {
+            const flowers = ['🌹', '🌺', '🌸', '🌼', '💐'];
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+            
+            // Random spread direction
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 100 + Math.random() * 150;
+            const tx = Math.cos(angle) * distance;
+            const ty = Math.sin(angle) * distance;
+            
+            flower.style.left = x + 'px';
+            flower.style.top = y + 'px';
+            flower.style.setProperty('--tx', tx + 'px');
+            flower.style.setProperty('--ty', ty + 'px');
+            
+            document.body.appendChild(flower);
+            
+            // Remove element after animation
+            setTimeout(() => flower.remove(), 1500);
+        }
+
+        // Check if all questions are answered
+        function checkAllAnswered() {
+            return preferences.budget !== null && preferences.outfits !== null && preferences.weekend !== null;
+        }
+
+        // Budget input listener
+        document.getElementById('budgetInput').addEventListener('input', function() {
+            if (this.value && parseInt(this.value) > 0) {
+                preferences.budget = this.value;
+            } else {
+                preferences.budget = null;
+            }
+            
+            if (checkAllAnswered()) {
+                document.getElementById('submitBtn').disabled = false;
+            } else {
+                document.getElementById('submitBtn').disabled = true;
+            }
+        });
+
+        // Page 1: Proposal buttons
+        document.getElementById('yesBtn').addEventListener('click', function() {
+            // Create flower explosions
+            for (let i = 0; i < 12; i++) {
+                const x = window.innerWidth / 2 + (Math.random() - 0.5) * 200;
+                const y = window.innerHeight / 2 + (Math.random() - 0.5) * 200;
+                setTimeout(() => createFlowerPop(x, y), i * 50);
+            }
+            
+            // Transition to page 2
+            setTimeout(() => {
+                document.getElementById('page1').style.display = 'none';
+                document.getElementById('page2').style.display = 'flex';
+            }, 800);
+        });
+
+        document.getElementById('noBtn').addEventListener('click', function() {
+            // Just bounce the no button away
+            this.style.pointerEvents = 'none';
+            setTimeout(() => {
+                this.style.pointerEvents = 'auto';
+            }, 200);
+        });
+
+        // Page 2: Preference selection
+        document.querySelectorAll('.pref-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const type = this.getAttribute('data-type');
+                const value = this.getAttribute('data-value');
+                
+                // Remove selected from other buttons of same type
+                document.querySelectorAll(`[data-type="${type}"]`).forEach(b => b.classList.remove('selected'));
+                
+                // Add selected to clicked button
+                this.classList.add('selected');
+                preferences[type] = value;
+                
+                // Enable submit button only if all are answered
+                if (checkAllAnswered()) {
+                    document.getElementById('submitBtn').disabled = false;
+                }
+                
+                // Flower pop on selection
+                createFlowerPop(event.clientX, event.clientY);
+            });
+        });
+
+        // Submit button
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            // Create celebration flowers
+            for (let i = 0; i < 20; i++) {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                setTimeout(() => createFlowerPop(x, y), i * 40);
+            }
+            
+            // Show final message
+            setTimeout(() => {
+                let message = `🎉 Perfect, Stacy! Here's what we're doing:\n\n`;
+                message += `💵 Budget: $${preferences.budget}\n`;
+                message += `👗 New Outfits: ${preferences.outfits === 'yes' ? 'Yes! Let\'s go shopping!' : 'You\'ve got it covered!'}\n`;
+                message += `🏨 Weekend: ${preferences.weekend === 'yes' ? 'Full romantic weekend!' : 'Special dinner night'}\n\n`;
+                message += `Can't wait to spend this time with you! 💕✨`;
+                alert(message);
+            }, 400);
+        });
+
+        // Click anywhere to create flowers (bonus feature)
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'INPUT') {
+                createFlowerPop(e.clientX, e.clientY);
+            }
+        });
+    </script>
+
+</body>
+</html>
